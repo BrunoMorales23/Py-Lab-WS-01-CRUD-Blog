@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data.contentTitle }}</title>
+</head>
+<body>
+    <h1>{{ data.contentTitle }}</h1>
+    <p><strong>Fecha:</strong> {{ data.date }}</p>
+    <div>
+        <strong>Contenido:</strong>
+        <p>{{ data.content or "Sin contenido" }}</p>
+    </div>
+</body>
+</html>

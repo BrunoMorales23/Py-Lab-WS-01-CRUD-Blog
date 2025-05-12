@@ -23,7 +23,7 @@
 
     <ul>
         {% for item in contenido %}
-            <li>{{ item.contentTitle }} - Valor: {{ item.content }}</li>
+            <li><a href="/log/{{ item.id }}">{{ item.date }} - {{ item.contentTitle }}</a></li>
         {% endfor %}
     </ul>
 
