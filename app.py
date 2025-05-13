@@ -33,10 +33,31 @@ def main():
 
 @app.route('/log/<int:id>',methods=['POST','GET'])
 def view_log(id):
-    datos = load_data(json_path)
-    id_url = next((item for item in datos if item.get('id') == id), None)
-    if id_url:
-        return render_template('refLog.html', data = id_url)
+    action = request.form.get("action")
+    if action != "editar":
+        datos = load_data(json_path)
+        id_url = next((item for item in datos if item.get('id') == id), None)
+        if id_url:
+            return render_template('refLog.html', data = id_url)
+    
+    else:
+        datos = load_data(json_path)
+        id_url = next((item for item in datos if item.get('id') == id), None)
+        text_title = request.form.get('text_title')
+        if text_title == "":
+            text_title = id_url['contentTitle']
+        text_content = request.form.get('text_content')
+        print(text_content)
+        if text_content == "":
+            text_content = id_url['content']
+        if id_url:
+            date_time = str(date.today())
+            id_url['contentTitle'] = text_title
+            id_url['content'] = text_content
+            id_url['date'] = date_time
+            save_data(json_path, datos)
+            return render_template('refLog.html', data = id_url)
+    
 
 def load_data(json_path):
     with open(json_path, 'r', encoding="UTF-8") as data:
@@ -46,6 +67,11 @@ def load_data(json_path):
 def save_data(json_path, data):
     with open(json_path, 'w') as file:
         json.dump(data, file, indent=4)
+
+def get_data(json_path, specific_value):
+    data = load_data(json_path)
+    specific_value = next((item for item in data if item.get(f'{specific_value}') == specific_value), None)
+    return specific_value
 
 if __name__ == '__main__':
     app.run(debug=True)

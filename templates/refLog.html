@@ -1,15 +1,34 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>{{ data.contentTitle }}</title>
 </head>
 <body>
+    <button onclick="createPost()">Editar Post</button>
+    <form action="/" method="post">
+        <button>Inicio</button>
+    </form>
+    <div id="createPostContainer" class="postContainer">
+        <div class="postContainerContent">
+            <form action="/log/{{ data.id }}" method="post">
+                <input placeholder="Título" name="text_title"></input>
+                <input placeholder="Contenido" name="text_content"></input>
+                <button onclick="closePost()" type="submit" name="action" value="editar">Editar</button>
+                <button onclick="closePost()" type="submit" name="action" value="cancelar">Cancelar</button>
+            </form>
+        </div>
+    </div>
+    
     <h1>{{ data.contentTitle }}</h1>
     <p><strong>Fecha:</strong> {{ data.date }}</p>
     <div>
         <strong>Contenido:</strong>
         <p>{{ data.content or "Sin contenido" }}</p>
     </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
