@@ -8,6 +8,7 @@
 </head>
 <body>
     <button onclick="createPost()">Editar Post</button>
+
     <form action="/" method="post">
         <button>Inicio</button>
     </form>
@@ -18,6 +19,9 @@
                 <textarea placeholder="Contenido" name="text_content" id="content_input"></textarea>
                 <button onclick="closePost()" type="submit" name="action" value="editar">Editar</button>
                 <button onclick="closePost()" type="submit" name="action" value="cancelar">Cancelar</button>
+            </form>
+            <form action="/" method="post">
+                <button onclick="closePost()" type="submit" name="action" value="eliminar">Eliminar</button>
             </form>
         </div>
     </div>

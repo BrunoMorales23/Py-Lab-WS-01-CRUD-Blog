@@ -1,16 +1,18 @@
-from flask import Flask, render_template, request, abort, jsonify, redirect
+from flask import Flask, render_template, request, abort, jsonify, redirect, url_for
 from datetime import date
 import os
 import json
 
 app = Flask(__name__)
-json_path = 'C:/Users/MarsuDIOS666/Desktop/MAIN REP/data.json'
+#json_path = 'C:/Users/MarsuDIOS666/Desktop/MAIN REP/data.json'
+json_path = "C:/Users/bmorales/OneDrive - rmrconsultores.com/Escritorio/Py-Lab-WS-01-CRUD-Blog/data.json"
+current_id = None
 
 @app.route('/', methods=['POST', 'GET'])
 def main():
+    global current_id
     datos = load_data(json_path)
     action = request.form.get("action")
-    print(action)
     if action == "aceptar":
         id = len(datos)
         id = int(id) + 1
@@ -26,6 +28,14 @@ def main():
         datos.append(new_data)
         datos = sorted(datos, reverse=True, key=lambda x: x["id"])
         save_data(json_path, datos)
+
+    elif action == "eliminar":
+        print(current_id)
+        datos = load_data(json_path)
+        data_filtrada = [item for item in datos if item["id"] != current_id]
+        save_data(json_path, data_filtrada)
+        return redirect(url_for('main'))
+
     else:
         datos = sorted(datos, reverse=True, key=lambda x: x["id"])
         save_data(json_path, datos)
@@ -34,13 +44,16 @@ def main():
 
 @app.route('/log/<int:id>',methods=['POST','GET'])
 def view_log(id):
+    global current_id
     action = request.form.get("action")
+    print(action)
     if action != "editar":
         datos = load_data(json_path)
         id_url = next((item for item in datos if item.get('id') == id), None)
+        current_id = id
         if id_url:
             return render_template('refLog.html', data = id_url)
-    
+
     else:
         datos = load_data(json_path)
         id_url = next((item for item in datos if item.get('id') == id), None)
