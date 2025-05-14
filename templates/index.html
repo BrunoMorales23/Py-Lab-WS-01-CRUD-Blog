@@ -4,26 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
     <title>Welcome</title>
 </head>
 <body>
-    <h1>MarsuBlog</h1>
-    <button onclick="createPost()">Crear Post</button>
+      <nav>
+    <div class="navbar">
+      <div class="logo">MarsuBlog</div>
+      <div class="nav-links">
+        <a href="/">Inicio</a>
+        <a onclick="createPost()">Crear Post</a>
+        <a href="https://github.com/BrunoMorales23/Py-Lab-WS-01-CRUD-Blog">Repositorio</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+  </nav>
     
+        <ul class="allContainer" id="contentList">
+        {% for item in contenido %}
+            <li class="liContent"><a href="/log/{{ item.id }}">{{ item.date }} - {{ item.contentTitle }}</a></li>
+        {% endfor %}
+        </ul>
+
+
     <div id="createPostContainer" class="postContainer">
         <form action="/" method="post" class="postContainerContent">
-            <textarea placeholder="Título" name="text_title" required="required" id="title_input"></textarea>
-            <textarea placeholder="Contenido" name="text_content" id="content_input"></textarea>
-            <button onclick="closePost()" type="submit" name="action" value="aceptar">Aceptar</button>
-            <button onclick="closePost()" type="submit" name="action" value="cancelar">Cancelar</button>
+            <textarea class="titleContainer" placeholder="Título" name="text_title" required="required" id="title_input"></textarea>
+            <textarea class="textContainer" placeholder="Contenido" name="text_content" id="content_input"></textarea>
+            <button class="buttonTextContainer" onclick="closePost()" type="submit" name="action" value="aceptar">Aceptar</button>
+            <button class="buttonTextContainer" onclick="closePost()" type="submit" name="action" value="cancelar">Cancelar</button>
         </form>
     </div>
-
-    <ul>
-        {% for item in contenido %}
-            <li><a href="/log/{{ item.id }}">{{ item.date }} - {{ item.contentTitle }}</a></li>
-        {% endfor %}
-    </ul>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

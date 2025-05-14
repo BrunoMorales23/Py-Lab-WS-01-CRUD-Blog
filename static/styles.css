@@ -1,3 +1,110 @@
+* {
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #ffcc00;
+}
+
+
+.allContainer {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.allContainer.liContent{
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    padding: 2rem;
+    margin: 5vh auto;
+    max-width: 90%;
+    width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem auto;
+  width: 100%;
+  text-align: center;  
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 3rem;
+  margin: 0.5rem auto;
+  width: 100%;
+  text-align: center;
+}
+
+.buttonTextContainer {
+  width: 45%;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin: 10px auto;
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  transition: 0.5s;
+  width: 100%;
+  max-width: 120px;
+  text-align: center;
+}
+
+.buttonTextContainer:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+
 .postContainer {
     display: none;
     position: fixed;
