@@ -15,8 +15,7 @@ def main():
     datos = load_data(json_path)
     action = request.form.get("action")
     if action == "aceptar":
-        id = len(datos)
-        id = int(id) + 1
+        id = datos[0]["id"] + 1
         text_title = request.form.get('text_title')
         text_content = request.form.get('text_content')
         date_time = str(date.today())
