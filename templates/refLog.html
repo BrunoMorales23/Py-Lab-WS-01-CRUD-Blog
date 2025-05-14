@@ -14,8 +14,8 @@
     <div id="createPostContainer" class="postContainer">
         <div class="postContainerContent">
             <form action="/log/{{ data.id }}" method="post">
-                <input placeholder="Título" name="text_title"></input>
-                <input placeholder="Contenido" name="text_content"></input>
+                <textarea placeholder="Título" name="text_title" id="title_input"></textarea>
+                <textarea placeholder="Contenido" name="text_content" id="content_input"></textarea>
                 <button onclick="closePost()" type="submit" name="action" value="editar">Editar</button>
                 <button onclick="closePost()" type="submit" name="action" value="cancelar">Cancelar</button>
             </form>

@@ -17,3 +17,11 @@
     text-align: center;
 }
 
+.postContainerContent textarea{
+    resize: none;
+}
+
+.test {
+    width: 100px;
+    height: auto;
+}

@@ -9,16 +9,14 @@
 <body>
     <h1>MarsuBlog</h1>
     <button onclick="createPost()">Crear Post</button>
-
+    
     <div id="createPostContainer" class="postContainer">
-        <div class="postContainerContent">
-            <form action="/" method="post">
-                <input placeholder="Título" name="text_title"></input>
-                <input placeholder="Contenido" name="text_content"></input>
-                <button onclick="closePost()" type="submit" name="action" value="aceptar">Aceptar</button>
-                <button onclick="closePost()" type="submit" name="action" value="cancelar">Cancelar</button>
-            </form>
-        </div>
+        <form action="/" method="post" class="postContainerContent">
+            <textarea placeholder="Título" name="text_title" required="required" id="title_input"></textarea>
+            <textarea placeholder="Contenido" name="text_content" id="content_input"></textarea>
+            <button onclick="closePost()" type="submit" name="action" value="aceptar">Aceptar</button>
+            <button onclick="closePost()" type="submit" name="action" value="cancelar">Cancelar</button>
+        </form>
     </div>
 
     <ul>
