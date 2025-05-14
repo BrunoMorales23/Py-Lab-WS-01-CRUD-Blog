@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, abort, jsonify
+from flask import Flask, render_template, request, abort, jsonify, redirect
 from datetime import date
 import os
 import json
@@ -30,6 +30,7 @@ def main():
         datos = sorted(datos, reverse=True, key=lambda x: x["id"])
         save_data(json_path, datos)
     return render_template('index.html', contenido = datos)
+
 
 @app.route('/log/<int:id>',methods=['POST','GET'])
 def view_log(id):
