@@ -52,7 +52,7 @@ nav {
     padding-left: 0;
 }
 
-.allContainer.liContent{
+.allContainer .liContent{
     position: relative;
     z-index: 1;
     background-color: white;
