@@ -4,8 +4,8 @@ import os
 import json
 
 app = Flask(__name__)
-#json_path = 'C:/Users/MarsuDIOS666/Desktop/MAIN REP/data.json'
-json_path = "C:/Users/bmorales/OneDrive - rmrconsultores.com/Escritorio/Py-Lab-WS-01-CRUD-Blog/data.json"
+json_path = 'C:/Users/MarsuDIOS666/Desktop/MAIN REP/data.json'
+#json_path = "C:/Users/bmorales/OneDrive - rmrconsultores.com/Escritorio/Py-Lab-WS-01-CRUD-Blog/data.json"
 #json_path = "data.json"
 current_id = None
 

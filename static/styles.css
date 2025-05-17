@@ -7,6 +7,15 @@
   padding: 0;
 }
 
+.modal-sheet .modal-dialog {
+  width: 380px;
+  transition: bottom .75s ease-in-out;
+}
+.modal-sheet .modal-footer {
+  padding-bottom: 2rem;
+}
+
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -107,27 +116,17 @@ nav {
 
 .postContainer {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
 }
 
 .postContainerContent {
     background: white;
     padding: 20px;
     margin: 15% auto;
-    width: 300px;
-    border-radius: 8px;
-    text-align: center;
+    width: 600px;
+    height: auto;
 }
 
-.postContainerContent textarea{
+
+.mb-3 textarea{
     resize: none;
-}
-
-.hidden {
-    display: none;
 }
