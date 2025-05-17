@@ -14,4 +14,5 @@ As a personal note, this exercise gave me the skill of creating static and freel
 
 ## ⚙️ Status
 
-This application is still on development phase, with not even a stable release, so please, keep in mind that most of the interactions and tools of this project, are still in progress.
+Live Version!: https://marsublog.onrender.com/
+Pending: User authentication
