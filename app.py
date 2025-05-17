@@ -4,9 +4,9 @@ import os
 import json
 
 app = Flask(__name__)
-json_path = 'C:/Users/MarsuDIOS666/Desktop/MAIN REP/data.json'
+#json_path = 'C:/Users/MarsuDIOS666/Desktop/MAIN REP/data.json'
 #json_path = "C:/Users/bmorales/OneDrive - rmrconsultores.com/Escritorio/Py-Lab-WS-01-CRUD-Blog/data.json"
-#json_path = "data.json"
+json_path = "data.json"
 current_id = None
 
 @app.route('/', methods=['POST', 'GET'])
@@ -88,5 +88,5 @@ def get_data(json_path, specific_value):
     return specific_value
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    #app.run(host='0.0.0.0', debug=True)
+    #app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
